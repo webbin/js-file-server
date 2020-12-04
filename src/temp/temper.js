@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-05 00:02:22
- * @LastEditTime: 2020-12-05 00:19:06
+ * @LastEditTime: 2020-12-05 00:25:15
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /js-file-server/src/temp/temper.js
@@ -14,7 +14,7 @@ const {
 
 const temp_file_name = 'temp.txt';
 
-const parse_temperature = (input = 'Temp=15.9*  Humidity=58.9%') => {
+const parse_temperature = (input = 'Temp=00*  Humidity=00%') => {
 
   let [pair1, pair2] = input.split('*');
 
@@ -33,7 +33,7 @@ const read_temperature = () => {
   const buf = execSync('python3 /home/webbin/py_project/Adafruit_Python_DHT/examples/AdafruitDHT.py 22 4');
   const text = String(buf);
   console.log(text);
-  write_data(text);
+  write_data(text + '*' + Date.now().toString());
 };
 
 const write_data = (data = '') => {
