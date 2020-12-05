@@ -1,12 +1,15 @@
 /*
  * @Date: 2020-06-30 15:31:56
- * @LastEditTime: 2020-06-30 15:57:23
+ * @LastEditTime: 2020-12-05 17:36:34
  * @Description: file content
  * @Author: zhengweibin
  */
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const {
+  read_temperature
+} = require('./temp/temp_read_server');
 
 const PORT = 12300;
 
@@ -41,7 +44,9 @@ app.use((req, res, next) => {
 
 // body parser
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 // cache
 // app.use(cache('2 minutes', (req, res) => res.statusCode === 200));
@@ -56,4 +61,18 @@ app.get('/files', function (req, res) {
   res.end();
 });
 
+app.get('/temperature', (req, res) => {
+  read_temperature()
+    .then((result) => {
+      res.type('application/json');
+      res.send(result);
+      res.end();
+    }).catch((err) => {
+      res.send(err);
+      res.end();
+    });
+
+});
+
 app.listen(PORT);
+console.log('listening on ', PORT);

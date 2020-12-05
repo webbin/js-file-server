@@ -13,7 +13,7 @@
   "htmlWhitespaceSensitivity": "ignore",
   "ignorePath": ".prettierignore",
   "jsxBracketSameLine": false,
-  "jsxSingleQuote": false,
+  "jsxSingleQuote": true,
   "requireConfig": false,
-  "trailingComma": "none"
+  "trailingComma": "all"
 }
