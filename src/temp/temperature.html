@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-05 17:45:54
- * @LastEditTime: 2020-12-05 19:56:20
+ * @LastEditTime: 2020-12-08 23:43:47
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: /js-file-server/src/temp/temperature.html
@@ -10,43 +10,60 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0" />
     <title>Temperature</title>
+
+    <script type="text/javascript">
+      fetch('http://10.42.0.1:12300/get/temperature')
+        .then((result) => {
+          return result.json();
+        })
+        .then((data) => {
+          console.log(data);
+          const { temperature, humidity } = data;
+          const tempSpan = document.getElementById('temperature-span');
+          const humiditySpan = document.getElementById('humidity-span');
+          tempSpan.textContent = `${temperature}℃`;
+          humiditySpan.textContent = humidity;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    </script>
   </head>
+
   <body>
     <div>
-      <span>
-        text1
-      </span>
-      <span>
-        text2
-      </span>
-    </div>
-    <div style="display: inline-block; width: 100%">
-      <div
+      <span
+        id="temperature-span"
         style="
           width: 100%;
+          height: auto;
           border-radius: 2em;
           background-color: aqua;
-          min-height: 10em;
           margin: 2em;
-          display: inline;
+          font-size: 10pt;
+          color: black;
+          padding: 5em;
         "
       >
-        <span style="font-size: 10pt; color: black">19℃</span>
-      </div>
-      <div
+        --
+      </span>
+
+      <span
+        id="humidity-span"
         style="
           width: 100%;
+          height: auto;
           border-radius: 2em;
           background-color: aqua;
-          min-height: 10em;
           margin: 2em;
-          display: inline;
+          font-size: 10pt;
+          color: black;
+          padding: 5em;
         "
       >
-        <span style="font-size: 10pt; color: black;">19℃</span>
-      </div>
+        --
+      </span>
     </div>
   </body>
 </html>
