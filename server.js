@@ -1,6 +1,6 @@
 /*
  * @Date: 2020-06-30 15:31:56
- * @LastEditTime: 2020-12-05 17:36:34
+ * @LastEditTime: 2020-12-08 22:52:55
  * @Description: file content
  * @Author: zhengweibin
  */
@@ -9,7 +9,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const {
   read_temperature
-} = require('./temp/temp_read_server');
+} = require('./src/temp/temp_read_server');
 
 const PORT = 12300;
 
