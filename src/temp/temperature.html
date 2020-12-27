@@ -29,41 +29,42 @@
           console.log(err);
         });
     </script>
+
+    <style>
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      .card {
+        display: flex;
+        text-align: center;
+        border-radius: 2em;
+          background-color: aqua;
+          margin: 1vw;
+          font-size: 3vw;
+          color: black;
+          padding: 1vw;
+      }
+    </style>
   </head>
 
   <body>
-    <div>
-      <span
+    <div class="container">
+      <div
         id="temperature-span"
-        style="
-          width: 100%;
-          height: auto;
-          border-radius: 2em;
-          background-color: aqua;
-          margin: 2em;
-          font-size: 10pt;
-          color: black;
-          padding: 5em;
-        "
+        class="card"
       >
         --
-      </span>
+      </div>
 
-      <span
+      <div
         id="humidity-span"
-        style="
-          width: 100%;
-          height: auto;
-          border-radius: 2em;
-          background-color: aqua;
-          margin: 2em;
-          font-size: 10pt;
-          color: black;
-          padding: 5em;
-        "
+        class="card"
       >
         --
-      </span>
+      </div>
     </div>
   </body>
 </html>
