@@ -6,9 +6,7 @@
   "proseWrap": "preserve",
   "arrowParens": "always",
   "bracketSpacing": true,
-  "disableLanguages": [
-      "vue"
-  ],
+  "disableLanguages": [],
   "endOfLine": "auto",
   "htmlWhitespaceSensitivity": "ignore",
   "ignorePath": ".prettierignore",
