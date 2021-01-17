@@ -25,5 +25,8 @@
     "eslint-plugin-standard": "^4.0.0",
     "express": "^4.17.1",
     "typescript": "^3.9.5"
+  },
+  "dependencies": {
+    "puppeteer-core": "^5.5.0"
   }
 }
