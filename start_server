@@ -1,0 +1,2 @@
+sudo iptables -I INPUT -p tcp --dport 12300 -j ACCEPT
+node /home/webbin/js_project/js-file-server/server.js 
